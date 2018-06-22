@@ -14,7 +14,7 @@ import os
 import os.path as ops
 import sys
 
-from local_utils import establish_char_dict
+import establish_char_dict
 
 
 class FeatureIO(object):

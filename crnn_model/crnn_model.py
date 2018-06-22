@@ -14,7 +14,7 @@ import tensorflow as tf
 from tensorflow.contrib import layers as tflayers
 from tensorflow.contrib import rnn
 
-from crnn_model import cnn_basenet
+import cnn_basenet
 
 
 class ShadowNet(cnn_basenet.CNNBaseModel):

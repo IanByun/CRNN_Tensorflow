@@ -19,9 +19,18 @@ try:
 except ImportError:
     pass
 
-from crnn_model import crnn_model
-from global_configuration import config
-from local_utils import log_utils, data_utils
+import os
+import sys
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+ROOT_DIR = os.path.dirname(BASE_DIR)
+
+sys.path.append(os.path.join(ROOT_DIR, 'crnn_model'))
+sys.path.append(os.path.join(ROOT_DIR, 'global_configuration'))
+sys.path.append(os.path.join(ROOT_DIR, 'local_utils'))
+
+import crnn_model
+import config
+import log_utils, data_utils
 
 logger = log_utils.init_logger()
 
@@ -100,4 +109,5 @@ if __name__ == '__main__':
         raise ValueError('{:s} doesn\'t exist'.format(args.image_path))
 
     # recognize the image
+    #python tools/demo_shadownet.py --image_path data/test_images/test_01.jpg --weights_path model/shadownet/shadownet_2017-10-17-11-47-46.ckpt-199999
     recognize(image_path=args.image_path, weights_path=args.weights_path)
